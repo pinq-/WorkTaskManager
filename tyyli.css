@@ -1,0 +1,120 @@
+body {
+    background-color: #152120;
+	color: white;
+}
+
+#Tunnit{
+	float:left;
+}
+#spinner{
+	width: 30px;
+	height: 15;
+	font-size:12px;
+}
+#toinensarake{
+	margin-left:30px;
+	float:left;
+	width:400px;
+}
+#valikko{
+	clear:both;
+}
+.aikakoko{
+	float: left;
+	width: 40px;
+
+}
+.spinner{
+	width: 70px;
+	float: left;
+}
+.prio{
+	width: 60px;
+	float: left;
+}
+label {
+	width: 130px;
+	float: left;
+	margin: 0 20px 0 0;
+}
+  }
+#ListaTehtava{
+	list-style-type:none;
+}
+#ListaTehtava li {
+    /* border-radius: 2px; */
+    list-style: none;
+    /*background: #b3d8ff;*/
+    padding: 1px;
+    /* margin-bottom: 5px; */
+    float: left;
+    /*height: 34px;*/
+	width:600px;
+  }
+/* #ListaTehtava li:nth-child(2n){
+    background: #80bfff;
+  } */
+ ul{
+     margin: 0px;
+     padding: 0px;
+}
+
+.tekstikoko{
+	width: 145px;
+	float: left;
+}
+input{
+	#border-color: #d9d9d9;
+}
+
+li div{
+	border-radius: 2px;
+	float: left;
+	padding: 5px 10px;
+	background:	#b3d9ff;
+	color:#152120;
+
+}
+.tehty{
+	background:#e6e6e6;
+	color:#d9d9d9;
+}
+.valmis{
+    color: 	#1f7a1f;
+    height: 26px;
+	padding: 3.7px 3px;
+  }
+  .valmis:hover{
+    color: 	#1aff1a;
+  }
+.poista{
+    color: #b30000;
+	padding: 3.7px 3px;
+    height: 26px;
+  }
+ .poista:hover{
+    color: #ff3300;
+  }
+.tehtavasarake.eka{
+	width:300px;
+}
+.tehtavasarake.toka{
+    height: 23px;
+	width:5px;
+}
+.tehtavasarake.kolmas{
+    height: 23px;
+	width:65px;
+}
+.Lisateksti{
+ 	display:none;
+	width:140px;
+	background:#e5f7ff;
+
+}
+.nuoli{
+	color:#e6e6e6;
+}
+.nuoli:hover{
+	color:#152120;
+}

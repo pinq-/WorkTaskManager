@@ -1,0 +1,79 @@
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/excite-bike/jquery-ui.css" type="text/css" rel="stylesheet" />
+<link href="tyyli.css" type="text/css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<script type="text/javascript" src="testiJava.js"></script>
+<script type="text/javascript" src="tehtava.js"></script>
+
+</head>
+<body>
+<!-- Pop-Up div -->
+<div id="tehtavadiv" title="Mitäs sä nyt oot puuhaillut">
+	<p>Anna työn kuvas tai valitse tehtävistä:</p>
+	  <select style="display:none;" id="valinnat">
+  </select>
+	<input type="text" id="PoPuPvastaus" />
+</div>
+<div id="Tunnit">
+	<div id="valikko">
+		<h1>Työtunnit</h1>
+		<div id="aika">
+			<b>Aika</b> <span id="timer">00:00:00</span>
+			<div id="oltu" style="float: right;">
+			</div>
+		</div>
+		<input type="submit" value="Työpäivän alku" id="Alku"/><input type="submit" value="Välitehtävä" id="lisaa"/><input type="submit" value="Työpäivän Loppu" id="loppu"/>
+	</div>
+		<div id="tunnit2">
+		</div>
+		<div>
+			<br><b>Työpäivän tehtävät ja tunnit</b>
+			<br><br>Aika Tehtävät
+		</div>
+		<div id="tuntitulokset">
+		</div>
+		<div>
+			<p>Työtunnit yhteensä <b id="tunnit4"></b></p>
+			<input type="submit" value="Tyhjennä kaikki" id="tyhjennys2"/>
+		</div>
+			<a href="https://secure.severa.com/PSA3/login/Default.aspx?ReturnUrl=%2fPSA3%2f" target="_blank">
+				<img src="https://secure.severa.com/PSA3/skins/severa/login/pics/visma_logo.png" alt="Visma tunnit" style="background-color:#6b6b6b;">
+			</a>
+		<div>
+		</div>
+</div>
+<div id="toinensarake">
+	<div id="valikko2">
+		<div>
+			<input type="submit" id="tyhjenna" value="tyhjennä selain"/><p id="tallennus"></p>
+		</div>
+		<h1>ToDo-lista työ</h1>
+		<div class="aikakoko">
+			Lisää
+			<input class="aikakoko" type="submit" value="+" id="LisaaTehtava"/>
+		</div>
+		<div class="tekstikoko">
+			Tehtävä
+			<input type="text" id="kuvaus"/>
+		</div>
+		<div class="spinner">
+			Prioriteetti
+			<input id="spinner"/>
+		</div>
+		<div class="tekstikoko">
+			Deadline
+			<input type="text" id="datepicker"/>
+		</div>
+		<div id="tehtavat">
+			<h3>Tehtävät</h3>
+			<ul id="ListaTehtava">
+			</ul>
+		</div>
+	</div>
+</div>
+</body>
+</html>
