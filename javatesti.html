@@ -18,6 +18,10 @@
   </select>
 	<input type="text" id="PoPuPvastaus" />
 </div>
+<div id="TunnitLista" style="display:none;" title ="Työtunnit">
+	<div id="hoursprint">
+	</div>
+</div>
 <div id="Tunnit">
 	<div id="valikko">
 		<h1>Työtunnit</h1>
@@ -38,7 +42,8 @@
 		</div>
 		<div>
 			<p>Työtunnit yhteensä <b id="tunnit4"></b></p>
-			<input type="submit" value="Tyhjennä kaikki" id="tyhjennys2"/>
+			<input type="submit" value="Tyhjennä taulukot" id="tyhjennys2"/>
+			<input type="submit" value="Tehdyt tunnit" id="TunnitTulostus"/>
 		</div>
 			<a href="https://secure.severa.com/PSA3/login/Default.aspx?ReturnUrl=%2fPSA3%2f" target="_blank">
 				<img src="https://secure.severa.com/PSA3/skins/severa/login/pics/visma_logo.png" alt="Visma tunnit" style="background-color:#6b6b6b;">

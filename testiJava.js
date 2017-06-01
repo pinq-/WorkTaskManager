@@ -3,7 +3,8 @@ var aikaerotus,
 	muDate,
 	puhdistus=false,
 	tyoalku,
-	jaljella;
+	jaljella,
+	tulostettu = 0;
 var tunnitlista=[];
 $( document ).ready(function() {
 window.onbeforeunload = function() {
@@ -14,7 +15,7 @@ window.onbeforeunload = function() {
 $("#tunnit2").append('<div id="rivi0"><input type="text" id="sarakeA'+juoksu+'"/><input type="text" id="sarakeB'+juoksu+'"/><span id="sarakeC'+juoksu+'"></span><br><span id="sarakeD'+juoksu+'"></span><br></div>');
 $("button, input:submit, input:button").toggleClass("ui-state-default");
 $('input:text').val("");
-lataafun();
+//lataafun();
 //Dialog
 $("#tehtavadiv").dialog({
 	autoOpen : false,
@@ -79,6 +80,26 @@ setInterval(function(){ // Laskee juoksevan ajan
 		$("#PoPuPvastaus").val('');
 		$("#tehtavadiv").dialog('open');
 		lisaaRivi();
+	});
+	$( "#TunnitTulostus" ).click(function() { //Tulostaa tehdyt tunnit
+		$("#TunnitLista").dialog({
+			modal:true,
+			show: {effect: "slide",duration: 200},
+			hide: {effect: "slide",duration: 200},
+			height : 500,
+			buttons: {
+				Close: function(){
+					$(this).dialog("close");
+				},
+				"Poista kaikki tunnit": function(){
+					$("#hoursprint").empty();
+					localStorage.clear("tunnitlocal");
+				}
+			}
+		});
+		if( tulostettu == 0){
+			tulostettu = printhours();
+		}
 	});
 	$( "#tyhjennys2" ).click(function() {
 		tyhjennys(1);
@@ -152,7 +173,8 @@ function taytaTaulkko(){
 		 }
 		 tulostunnit+=toSeconds($("#sarakeC"+index).text());
 	});
-	localStorage.setItem('tunnitlocal', JSON.stringify(tunnitlista));
+	//localStorage.setItem('tunnitlocal', JSON.stringify(tunnitlista));
+	save_times(tunnitlista);
 	$("#tunnit4").text(AddZero(Math.floor(tulostunnit/3600)) + ':' + AddZero(Math.floor((tulostunnit % 3600)/60)));
 }
 
@@ -212,4 +234,39 @@ function Find_Array(tekija, lista){
 		}
 	}
 	return false
+}
+
+function save_times(lista){
+	paivatunnit =[];
+	date = myDate.toTimeString().substr(0,5)+"/"+myDate.getDate().toString()+"."+(myDate.getMonth()+1).toString()+"."+myDate.getFullYear().toString();
+	paivatunnit.push({aikaleima:date,tehtavat:lista})
+	if(localStorage.getItem("tunnitlocal")){
+		tunnitlista = JSON.parse(localStorage.getItem("tunnitlocal"));
+	}
+	else {
+		tunnitlista =[];
+	}
+	tunnitlista.push(paivatunnit)
+	localStorage.setItem('tunnitlocal', JSON.stringify(tunnitlista));
+	tulostettu = 0;
+	$("#hoursprint").empty();
+}
+
+function printhours(){
+	if(localStorage.getItem('tunnitlocal')){
+		testi = localStorage.getItem("tunnitlocal");
+		tyopaiva = $.parseJSON(localStorage.getItem("tunnitlocal"));
+		$.each(tyopaiva, function(index){
+				tulostunnit=0;
+				$("#hoursprint").append('<ul id="aikaleima'+index+'" class="aikaleima"><b>'+tyopaiva[index][0].aikaleima+'</b>');
+				$.each(tyopaiva[index][0].tehtavat, function(index2){
+					$("#aikaleima"+index).append('<li>'+tyopaiva[index][0].tehtavat[index2].aika+' '+ tyopaiva[index][0].tehtavat[index2].tehtava+'</li>');
+					tulostunnit+=toSeconds(tyopaiva[index][0].tehtavat[index2].aika);
+				});
+				tulostunnit = AddZero(Math.floor(tulostunnit/3600)) + ':' + AddZero(Math.floor((tulostunnit % 3600)/60));
+				$("#aikaleima"+index).append('<li> Tehdyt tunnit: '+tulostunnit+'</li>');
+				$("#hoursprint").append('</ul>');
+		});
+	}
+	return 1;
 }
