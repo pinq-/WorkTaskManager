@@ -108,7 +108,7 @@ setInterval(function(){ // Laskee juoksevan ajan
 	$("#valinnat").change(function(){
 		var str="";
 		$("select option:selected").each(function(){
-			str+= $(this).text() +" ";
+			str+= $(this).text();
 		});
 		$("#PoPuPvastaus").val(str);
 	}).trigger("change");
@@ -254,7 +254,6 @@ function save_times(lista){
 
 function printhours(){
 	if(localStorage.getItem('tunnitlocal')){
-		testi = localStorage.getItem("tunnitlocal");
 		tyopaiva = $.parseJSON(localStorage.getItem("tunnitlocal"));
 		$.each(tyopaiva, function(index){
 				tulostunnit=0;

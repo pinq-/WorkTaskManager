@@ -12,14 +12,20 @@
 </head>
 <body>
 <!-- Pop-Up div -->
-<div id="tehtavadiv" title="Mitäs sä nyt oot puuhaillut">
+<div id="tehtavadiv" title="Mitäs sä nyt oot puuhaillut"><!--Tehtävän kuvaus tehdylle ajalle dialogi. piiloitettu-->
 	<p>Anna työn kuvas tai valitse tehtävistä:</p>
 	  <select style="display:none;" id="valinnat">
   </select>
 	<input type="text" id="PoPuPvastaus" />
 </div>
-<div id="TunnitLista" style="display:none;" title ="Työtunnit">
+<div id="TunnitLista" style="display:none;" title ="Työtunnit"><!--Työtunnit dialogi. piiloitettu-->
 	<div id="hoursprint">
+	</div>
+</div>
+<div id="Tyotunnit" style="display:none;" title ="Tehtavissa mennyt tunnit"> <!--Tehtävissä käytetty aika dialogi. piiloitettu-->
+	<div >
+		<ul id="taskworkhours"><b> Tehtavissa menneet tunnit</b>
+		</ul>
 	</div>
 </div>
 <div id="Tunnit">
@@ -48,6 +54,7 @@
 			<a href="https://secure.severa.com/PSA3/login/Default.aspx?ReturnUrl=%2fPSA3%2f" target="_blank">
 				<img src="https://secure.severa.com/PSA3/skins/severa/login/pics/visma_logo.png" alt="Visma tunnit" style="background-color:#6b6b6b;">
 			</a>
+			<input type="submit" value="Tehtava tunnit" id="TehtavaTunnit"/>
 		<div>
 		</div>
 </div>
