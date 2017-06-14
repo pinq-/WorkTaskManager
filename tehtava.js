@@ -12,6 +12,7 @@ $( document ).ready(function() {
 //Panikkeet
 	$( "#LisaaTehtava").click(function() {
 		varKuvaus=$("#kuvaus").val();
+
 		if(varKuvaus=="" || varKuvaus==" "){
 			return false;
 		}
@@ -28,6 +29,7 @@ $( document ).ready(function() {
 		vari(varPriot,6,juoksu2);
 		juoksu2++;
 		$("#kuvaus").val('');
+		$("#datepicker").val('');
 	});
 	$("#ListaTehtava").on("click",".poista",function(){ //Poistaa listalta tehtävän
 		$(this).parent("li").slideUp("normal", function() { $(this).remove(); });
@@ -56,6 +58,7 @@ $( document ).ready(function() {
 	//Tyhjentaa kaikki lokaali tiedot
 	$( "#tyhjenna").click(function() {
 		localStorage.clear();
+		tehtavat = [];
 	});
 	$( "#TehtavaTunnit" ).click(function() { //Tulostaa tehtävissä käytetyt tunnit
 		if(tuolstettuTyoTunnit === 0){
