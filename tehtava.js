@@ -158,32 +158,13 @@ function printworkhours(){
 				});
 		});
 	}
-	$.each(tehtavatunnit, function(index) {
-
-		if (tehtavatunnit.length !== 0) {
-			$("#taskworkhours").append('<li>'+tehtavatunnit[index].tehtava+' : '+ AddZero(Math.floor(tehtavatunnit[index].tunnit/3600)) + ':' + AddZero(Math.floor((tehtavatunnit[index].tunnit % 3600)/60))+'</li>');
-		}
-	});
+	if (tehtavatunnit.length !== 0) {
+		$.each(tehtavatunnit, function(index) {
+			if(tehtavatunnit[index].tunnit !== 0 ){
+				$("#taskworkhours").append('<li>'+tehtavatunnit[index].tehtava+' : '+ AddZero(Math.floor(tehtavatunnit[index].tunnit/3600)) + ':' + AddZero(Math.floor((tehtavatunnit[index].tunnit % 3600)/60))+'</li>');
+			}
+		});
+	}
 
 	return 1;
 }
-
-// function testi(){
-// 	testi_lista1 = ["a","b","c"];
-// 	testi_lista2 = [1,2,3];
-// 	testi_lista3 = ["s","d","f","g"];
-//
-// 	$.each(testi_lista1, function(index){
-// 		$.each(testi_lista2, function(index2){
-// 			$.each(testi_lista3,function(index3){
-// 				console.log(testi_lista1[index],testi_lista2[index2],testi_lista3[index3]);
-// 				if(testi_lista3[index3] === "f"){
-// 					return false;
-// 				}
-// 			});
-// 			if (testi_lista2[index2] === 2){
-// 				return false;
-// 			}
-// 		});
-// 	});
-// }

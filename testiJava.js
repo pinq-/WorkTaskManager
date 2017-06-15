@@ -77,8 +77,9 @@ setInterval(function(){ // Laskee juoksevan ajan
 		$("#sarakeB"+juoksu).val(myDate.toTimeString().substr(0,5));
 		laske();
 		$("#sarakeC"+juoksu).text(aikaerotus);
-		$("#PoPuPvastaus").val('');
 		$("#tehtavadiv").dialog('open');
+		$("#PoPuPvastaus").val($("#valinnat  option:first-child").text());
+		console.log($("#valinnat  option:first-child").text());
 		lisaaRivi();
 	});
 	$( "#TunnitTulostus" ).click(function() { //Tulostaa tehdyt tunnit
