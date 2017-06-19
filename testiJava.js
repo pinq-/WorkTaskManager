@@ -79,7 +79,7 @@ setInterval(function(){ // Laskee juoksevan ajan
 		$("#sarakeC"+juoksu).text(aikaerotus);
 		$("#tehtavadiv").dialog('open');
 		$("#PoPuPvastaus").val($("#valinnat  option:first-child").text());
-		console.log($("#valinnat  option:first-child").text());
+		// console.log($("#valinnat  option:first-child").text());
 		lisaaRivi();
 	});
 	$( "#TunnitTulostus" ).click(function() { //Tulostaa tehdyt tunnit
@@ -212,7 +212,10 @@ function lisaatehtavat(){
 	if(tehtavat.length!=0){
 		$("#valinnat").show();
 		$.each(tehtavat,function(index){
-			$("#valinnat").append('<option>'+tehtavat[index].kuvaus+'</option>');
+			if(tehtavat[index].done === 0){
+				$("#valinnat").append('<option>'+tehtavat[index].kuvaus+'</option>');
+			}
+
 		});
 	}
 }
