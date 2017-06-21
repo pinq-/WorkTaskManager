@@ -1,4 +1,4 @@
-// Git testi2
+// tämä on testi kello 13.38
 var tehtavat=[];
 var juoksu2;
 var tuolstettuTyoTunnit = 0;
