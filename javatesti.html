@@ -14,8 +14,7 @@
 <!-- Pop-Up div -->
 <div id="tehtavadiv" title="Mitäs sä nyt oot puuhaillut"><!--Tehtävän kuvaus tehdylle ajalle dialogi. piiloitettu-->
 	<p>Anna työn kuvas tai valitse tehtävistä:</p>
-	  <select style="display:none;" id="valinnat">
-  </select>
+	<select style="display:none;" id="valinnat"></select>
 	<input type="text" id="PoPuPvastaus" />
 </div>
 <div id="TunnitLista" style="display:none;" title ="Työtunnit"><!--Työtunnit dialogi. piiloitettu-->
@@ -24,7 +23,8 @@
 </div>
 <div id="Tyotunnit" style="display:none;" title ="Tehtavissa mennyt tunnit"> <!--Tehtävissä käytetty aika dialogi. piiloitettu-->
 	<div >
-		<ul id="taskworkhours"><b> Tehtavissa menneet tunnit</b>
+		<ul id="taskworkhours">
+			<b> Tehtavissa menneet tunnit</b>
 		</ul>
 	</div>
 </div>
@@ -48,21 +48,18 @@
 		</div>
 		<div>
 			<p>Työtunnit yhteensä <b id="tunnit4"></b></p>
-			<input type="submit" value="Tyhjennä taulukot" id="tyhjennys2"/>
+			<input type="submit" value="Tehtava tunnit" id="TehtavaTunnit"/>
 			<input type="submit" value="Tehdyt tunnit" id="TunnitTulostus"/>
 		</div>
 			<a href="https://secure.severa.com/PSA3/login/Default.aspx?ReturnUrl=%2fPSA3%2f" target="_blank">
 				<img src="https://secure.severa.com/PSA3/skins/severa/login/pics/visma_logo.png" alt="Visma tunnit" style="background-color:#6b6b6b;">
 			</a>
-			<input type="submit" value="Tehtava tunnit" id="TehtavaTunnit"/>
 		<div>
+			<input type="submit" value="Tyhjennä taulukot" id="tyhjennys2" class="ui-state-error"/>
 		</div>
 </div>
 <div id="toinensarake">
 	<div id="valikko2">
-		<div>
-			<input type="submit" id="tyhjenna" value="tyhjennä selain"/><p id="tallennus"></p>
-		</div>
 		<h1>ToDo-lista työ</h1>
 		<div class="aikakoko">
 			Lisää
@@ -84,6 +81,9 @@
 			<h3>Tehtävät</h3>
 			<ul id="ListaTehtava">
 			</ul>
+		</div>
+		<div>
+			<input type="submit" id="tyhjenna" value="tyhjennä selain" class="ui-state-error"/><p id="tallennus"></p>
 		</div>
 	</div>
 </div>

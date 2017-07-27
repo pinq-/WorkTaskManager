@@ -70,6 +70,7 @@ $( document ).ready(function() {
 			show: {effect: "slide",duration: 200},
 			hide: {effect: "slide",duration: 200},
 			height : 500,
+			width: 400,
 			buttons: {
 				Close: function(){
 					$(this).dialog("close");
