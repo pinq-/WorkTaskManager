@@ -142,6 +142,8 @@ function printworkhours(){
 	tehtavatunnit = []
 	if(localStorage.getItem('tunnitlocal')){
 		tunnit_muistsita = $.parseJSON(localStorage.getItem("tunnitlocal"));
+		$("#lahto_aika").text(tunnit_muistsita[0][0].aikaleima);
+		// alert(tunnit_muistsita[0][0].aikaleima);
 		tehtavat_muistista = $.parseJSON(localStorage.getItem("tehtavatlocal"));
 		$.each(tehtavat_muistista, function(index){
 			tehtavatunnit.push({tehtava:tehtavat_muistista[index].kuvaus,tunnit:0});

@@ -12,49 +12,49 @@ window.onbeforeunload = function() {
         return "Älä mene!"
       }
 //alku asetukset
-$("#tunnit2").append('<div id="rivi0"><input type="text" id="sarakeA'+juoksu+'"/><input type="text" id="sarakeB'+juoksu+'"/><span id="sarakeC'+juoksu+'"></span><br><span id="sarakeD'+juoksu+'"></span><br></div>');
+$("#tunnit2").append('<div id="rivi"><input type="text" id="sarakeA'+juoksu+'"/><input type="text" id="sarakeB'+juoksu+'"/><span id="sarakeC'+juoksu+'"></span><br><span id="sarakeD'+juoksu+'"  class="klikattava"></span><br></div>');
 $("button, input:submit, input:button").toggleClass("ui-state-default");
 $('input:text').val("");
 //lataafun();
 //Dialog
-$("#tehtavadiv").dialog({
-	autoOpen : false,
-	modal : true,
-	open:function(event,ui){
-		$(".ui-dialog-titlebar-close", ui.dialog | ui).hide();
-		lisaatehtavat();
-			$('#tehtavadiv').keypress(function(e) {
-				if (e.keyCode == $.ui.keyCode.ENTER) {
-					$(this).dialog("close");
-				}
-			});
-	},
-	close:function(event,ui){
-		$("#sarakeD"+(juoksu-1)).text($("#PoPuPvastaus").val());
-		if (puhdistus){
-			tyhjennys(1);
-			taytaTaulkko();
-			tyhjennys(0);
-			//juoksu=0;
+	$("#tehtavadiv").dialog({
+		autoOpen : false,
+		modal : true,
+		open:function(event,ui){
+			$(".ui-dialog-titlebar-close", ui.dialog | ui).hide();
+			lisaatehtavat();
+				$('#tehtavadiv').keypress(function(e) {
+					if (e.keyCode == $.ui.keyCode.ENTER) {
+						$(this).dialog("close");
+					}
+				});
+		},
+		close:function(event,ui){
+			$("#sarakeD"+(juoksu-1)).text($("#PoPuPvastaus").val());
+			if (puhdistus){
+				tyhjennys(1);
+				taytaTaulkko();
+				tyhjennys(0);
+				//juoksu=0;
+			}
+		},
+		buttons: {
+			"Ok":function(){
+				$(this).dialog("close");
+			}
 		}
-	},
-	buttons: {
-		"Ok":function(){
-			$(this).dialog("close");
-		}
-	}
 	});
-setInterval(function(){ // Laskee juoksevan ajan
-	aika();
+	setInterval(function(){ // Laskee juoksevan ajan
+		aika();
 
-	$("#timer").text(myDate.getHours() + ':' +("0"+myDate.getMinutes()).slice(-2) + ':'+ ("0"+myDate.getSeconds()).slice(-2));
-	if(tyoalku > 0){
+		$("#timer").text(myDate.getHours() + ':' +("0"+myDate.getMinutes()).slice(-2) + ':'+ ("0"+myDate.getSeconds()).slice(-2));
+		if(tyoalku > 0){
 
-		jaljella=(new Date()).getTime()-tyoalku;
+			jaljella=(new Date()).getTime()-tyoalku;
 
-		$("#olut").text(("0"+Math.floor((jaljella/(1000*60*60))%24)).slice(-2)+':'+("0"+Math.floor((jaljella/ (1000*60))%60)).slice(-2)+':'+("0"+Math.floor((jaljella/ 1000)%60)).slice(-2));
-	}
-	}, 1000);
+			$("#olut").text(("0"+Math.floor((jaljella/(1000*60*60))%24)).slice(-2)+':'+("0"+Math.floor((jaljella/ (1000*60))%60)).slice(-2)+':'+("0"+Math.floor((jaljella/ 1000)%60)).slice(-2));
+		}
+		}, 1000);
 //painikkeet
     $( "#Alku" ).click(function() { //Päivan aloitus
 		aika();
@@ -115,6 +115,16 @@ setInterval(function(){ // Laskee juoksevan ajan
 		$("#PoPuPvastaus").val(str);
 	}).trigger("change");
 
+	$("#Tunnit").on("click",".klikattava",function(){ //Poistaa listalta tehtävän
+		var text = prompt("Nimeä tehtävä uudelleen", $(this).text());
+		$(this).text(text);
+		// alert("jjiuu");
+	});
+	// $( ".klikattava" ).click(function() {
+	// 	var text = prompt("Nimeä tehtävä uudelleen", $(this).text());
+	// 	$(this).text(text);
+	// });
+
 });
 //funktiot
 function aika() {
@@ -136,7 +146,7 @@ function laske(){
 
 function lisaaRivi(){
 	juoksu++;
-	$("#tunnit2").append('<div id="rivi0"><input type="text" id="sarakeA'+juoksu+'"/><input type="text" id="sarakeB'+juoksu+'"/><span id="sarakeC'+juoksu+'"></span><br><span id="sarakeD'+juoksu+'"></span><br></div>');
+	$("#tunnit2").append('<div id="rivi"><input type="text" id="sarakeA'+juoksu+'"/><input type="text" id="sarakeB'+juoksu+'"/><span id="sarakeC'+juoksu+'"></span><br><span id="sarakeD'+juoksu+'"  class="klikattava"></span><br></div>');
 	aika();
 	$("#sarakeA"+juoksu).val(myDate.toTimeString().substr(0,5));
 }
@@ -190,7 +200,7 @@ function tyhjennys(ehto){
 	else{
 		$("#Tunnit #tunnit2").empty();
 		juoksu=0;
-		$("#tunnit2").append('<div id="rivi0"><input type="text" id="sarakeA'+juoksu+'"/><input type="text" id="sarakeB'+juoksu+'"/><span id="sarakeC'+juoksu+'"></span><br><span id="sarakeD'+juoksu+'"></span><br></div>');
+		$("#tunnit2").append('<div id="rivi"><input type="text" id="sarakeA'+juoksu+'"/><input type="text" id="sarakeB'+juoksu+'"/><span id="sarakeC'+juoksu+'"></span><br><span id="sarakeD'+juoksu+'"></span><br></div>');
 		$("input:text").val("");
 	}
 
