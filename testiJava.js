@@ -57,10 +57,12 @@ $('input:text').val("");
 		}, 1000);
 //painikkeet
     $( "#Alku" ).click(function() { //Päivan aloitus
-		aika();
-        $("#sarakeA"+juoksu).val(myDate.toTimeString().substr(0,5));
-		tyoalku=(new Date()).getTime();
-		$("#oltu").append('<b>Oltu aika</b> <span id="olut">00:00:00</span>');
+				if ($("#olut").html() == null){
+					aika();
+					$("#sarakeA"+juoksu).val(myDate.toTimeString().substr(0,5));
+					tyoalku=(new Date()).getTime();
+					$("#oltu").append('<b>Oltu aika</b> <span id="olut">00:00:00</span>');
+				}
     });
 	$( "#loppu" ).click(function() { //Päivän lopetus
 		puhdistus=true;
@@ -219,15 +221,22 @@ function lataafun(){
 }
 
 function lisaatehtavat(){
+	var WordLength = 0;
 	$("#valinnat").empty();
-	if(tehtavat.length!=0){
+	if(tehtavat.length != 0){
 		$("#valinnat").show();
 		$.each(tehtavat,function(index){
 			if(tehtavat[index].done === 0){
+				if (tehtavat[index].kuvaus.length > WordLength){
+					WordLength = tehtavat[index].kuvaus.length;
+				}
+
 				$("#valinnat").append('<option>'+tehtavat[index].kuvaus+'</option>');
 			}
 
 		});
+	var GetDilaog = $("#tehtavadiv").dialog();
+	GetDilaog.dialog("option", "width", WordLength*10);
 	}
 }
 

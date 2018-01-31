@@ -5,6 +5,7 @@ body {
 
 #Tunnit{
 	float:left;
+  width: 20%;
 }
 #spinner{
 	width: 30px;
