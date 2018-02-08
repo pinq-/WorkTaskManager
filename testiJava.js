@@ -20,6 +20,7 @@ $('input:text').val("");
 	$("#tehtavadiv").dialog({
 		autoOpen : false,
 		modal : true,
+		minWidth: 350,
 		open:function(event,ui){
 			$(".ui-dialog-titlebar-close", ui.dialog | ui).hide();
 			lisaatehtavat();
@@ -65,24 +66,28 @@ $('input:text').val("");
 				}
     });
 	$( "#loppu" ).click(function() { //Päivän lopetus
-		puhdistus=true;
-		aika();
-        $("#sarakeB"+juoksu).val(myDate.toTimeString().substr(0,5));
-		laske();
-		$("#sarakeC"+juoksu).text(aikaerotus);
-		juoksu++;
-		$("#PoPuPvastaus").val('');
-		$("#tehtavadiv").dialog('open');
+		if ($("#olut").html() != null){
+			puhdistus=true;
+			aika();
+	        $("#sarakeB"+juoksu).val(myDate.toTimeString().substr(0,5));
+			laske();
+			$("#sarakeC"+juoksu).text(aikaerotus);
+			juoksu++;
+			$("#PoPuPvastaus").val('');
+			$("#tehtavadiv").dialog('open');
+		}
 	});
 	$( "#lisaa" ).click(function() { //Päivän välitehtävät
-		puhdistus=false;
-		$("#sarakeB"+juoksu).val(myDate.toTimeString().substr(0,5));
-		laske();
-		$("#sarakeC"+juoksu).text(aikaerotus);
-		$("#tehtavadiv").dialog('open');
-		$("#PoPuPvastaus").val($("#valinnat  option:first-child").text());
-		// console.log($("#valinnat  option:first-child").text());
-		lisaaRivi();
+		if ($("#olut").html() != null){
+			puhdistus=false;
+			$("#sarakeB"+juoksu).val(myDate.toTimeString().substr(0,5));
+			laske();
+			$("#sarakeC"+juoksu).text(aikaerotus);
+			$("#tehtavadiv").dialog('open');
+			$("#PoPuPvastaus").val($("#valinnat  option:first-child").text());
+			// console.log($("#valinnat  option:first-child").text());
+			lisaaRivi();
+		}
 	});
 	$( "#TunnitTulostus" ).click(function() { //Tulostaa tehdyt tunnit
 		$("#TunnitLista").dialog({
