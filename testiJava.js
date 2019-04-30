@@ -69,7 +69,7 @@ $('input:text').val("");
 		if ($("#olut").html() != null){
 			puhdistus=true;
 			aika();
-	        $("#sarakeB"+juoksu).val(myDate.toTimeString().substr(0,5));
+	    $("#sarakeB"+juoksu).val(myDate.toTimeString().substr(0,5));
 			laske();
 			$("#sarakeC"+juoksu).text(aikaerotus);
 			juoksu++;
