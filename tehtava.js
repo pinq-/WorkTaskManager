@@ -4,7 +4,7 @@ var juoksu2;
 var tuolstettuTyoTunnit = 0;
 $( document ).ready(function() {
 	//Alkuasetukset
-	var spinner = $( "#spinner" ).spinner({min:0,max:5});
+	$( "#spinner" ).spinner({min:0,max:5});
 	$( "#datepicker" ).datepicker();
 	$( "#datepicker" ).datepicker("option", "dateFormat","dd/mm/yy");
 	latausf();
